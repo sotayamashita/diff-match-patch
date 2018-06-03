@@ -1,4 +1,4 @@
-require "./diff_match_patch"
+require "spec_helper"
 
 RSpec.describe String do
   describe "#substring" do
