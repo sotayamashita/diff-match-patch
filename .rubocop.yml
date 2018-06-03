@@ -1,0 +1,10 @@
+AllCops:
+  TargetRubyVersion: 2.3
+
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+    - config/rails.yml
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

@@ -129,7 +129,7 @@ class DiffMatchPatch
     if short_text.size == 1
       # Single character string.
       # After the previous speedup, the character can't be an equality.
-      return [["DIFF_DELETE", text1], ["DIFF_INSERT", text2]];
+      return [["DIFF_DELETE", text1], ["DIFF_INSERT", text2]]
     end
 
     # Check to see if the problem can be split in two.
@@ -412,7 +412,7 @@ class DiffMatchPatch
           if overlap_length2 >= (deletion.size / 2.to_f) || overlap_length2 >= (insertion.size / 2.to_f)
             # Reverse overlap found.
             # Insert an equality and swap and trim the surrounding edits.
-            diffs.splice(pointer, 0,["DIFF_EQUAL", deletion.substring(0, overlap_length2)])
+            diffs.splice(pointer, 0, ["DIFF_EQUAL", deletion.substring(0, overlap_length2)])
             diffs[pointer - 1][0] = "DIFF_INSERT"
             diffs[pointer - 1][1] = insertion.substring(0, insertion.size - overlap_length2)
             diffs[pointer + 1][0] = "DIFF_DELETE"
@@ -451,7 +451,7 @@ class DiffMatchPatch
             common_length = diff_common_prefix(text_insert, text_delete)
             if common_length != 0
               if (pointer - count_delete - count_insert) > 0 && diffs[pointer - count_delete - count_insert - 1][0] == "DIFF_EQUAL"
-                diffs[pointer - count_delete - count_insert - 1][1] += text_insert.substring(0, common_length);
+                diffs[pointer - count_delete - count_insert - 1][1] += text_insert.substring(0, common_length)
               else
                 diffs.splice(0, 0, ["DIFF_EQUAL", text_insert.substring(0, common_length)])
                 pointer += 1
@@ -879,7 +879,7 @@ class DiffMatchPatch
 
   # @return The number of milliseconds between midnight of January 1, 1970
   def get_time
-    Time.now.strftime('%s%L').to_i
+    Time.now.strftime("%s%L").to_i
   end
 
   def max_number
